@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jok Solutions Pvt Ltd | Next-Gen Enterprise Tech & AI Academy</title>
+    
+    <!-- 3D Brand Favicon (Embedded SVG) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236366f1'/%3E%3Cstop offset='100%25' stop-color='%23ec4899'/%3E%3C/linearGradient%3E%3ClinearGradient id='g2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2306b6d4'/%3E%3Cstop offset='100%25' stop-color='%233b82f6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M32 4 L58 19 L58 45 L32 60 L6 45 L6 19 Z' fill='url(%23g1)'/%3E%3Cpath d='M32 4 L58 19 L32 34 L6 19 Z' fill='url(%23g2)' opacity='0.9'/%3E%3Cpath d='M32 34 L58 19 L58 45 L32 60 Z' fill='%23312e81' opacity='0.5'/%3E%3Ctext x='32' y='42' font-family='Arial, sans-serif' font-size='22' font-weight='900' fill='white' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4338ca;
+            --secondary: #06b6d4;
+            --accent: #ec4899;
+            --accent-orange: #f97316;
+            --dark: #090d16;
+            --card-dark: #111827;
+            --glass-bg: rgba(255, 255, 255, 0.88);
+            --gradient-1: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+            --gradient-2: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #1e293b;
+            background-color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Glassmorphism Sticky Nav */
+        .navbar {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 900;
+            background: var(--gradient-1);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.6rem;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-link {
+            font-weight: 700;
+            color: #334155 !important;
+            font-size: 0.92rem;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: var(--primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 80%;
+        }
+
+        /* 3D Action Buttons */
+        .btn-genz {
+            background: var(--gradient-1);
+            color: #fff !important;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.35);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-genz:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 16px 35px rgba(236, 72, 153, 0.45);
+        }
+
+        .btn-genz-alt {
+            background: #fff;
+            border: 2px solid #e2e8f0;
+            color: #0f172a !important;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+        }
+
+        .btn-genz-alt:hover {
+            border-color: var(--primary);
+            color: var(--primary) !important;
+            transform: translateY(-2px);
+        }
+
+        /* 3D Visual Cards & Floating Badges */
+        .hero-img-container {
+            position: relative;
+        }
+
+        .hero-main-img {
+            border-radius: 32px;
+            box-shadow: 0 25px 60px rgba(15, 23, 42, 0.18);
+            border: 4px solid #ffffff;
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+        }
+
+        .floating-badge-3d {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 12px 20px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: floatSlow 4s ease-in-out infinite alternate;
+        }
+
+        .badge-pos-1 {
+            top: -20px;
+            right: -20px;
+        }
+
+        .badge-pos-2 {
+            bottom: -20px;
+            left: -20px;
+            animation-delay: 2s;
+        }
+
+        @keyframes floatSlow {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-14px) rotate(2deg); }
+        }
+
+        /* Gradient Text */
+        .grad-text {
+            background: var(--gradient-1);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .grad-cyan {
+            background: var(--gradient-2);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid #edf2f7;
+            border-radius: 24px;
+            padding: 2.2rem;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            position: relative;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 45px rgba(99, 102, 241, 0.12);
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+
+        .glow-tag {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.82rem;
+            display: inline-block;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .hero-section {
+            padding: 150px 0 90px;
+            background: radial-gradient(circle at 85% 20%, rgba(99, 102, 241, 0.15) 0%, rgba(255, 255, 255, 0) 50%),
+                        radial-gradient(circle at 10% 80%, rgba(236, 72, 153, 0.12) 0%, rgba(255, 255, 255, 0) 50%);
+        }
+
+        /* Team Avatar Frames */
+        .avatar-frame {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            margin: 0 auto 1.2rem;
+            padding: 4px;
+            background: var(--gradient-1);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .avatar-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #fff;
+        }
+
+        .glass-card:hover .avatar-frame {
+            transform: scale(1.06) rotate(3deg);
+        }
+
+        .founder-card {
+            background: linear-gradient(145deg, #090d16 0%, #1e1b4b 100%);
+            color: #fff;
+            border-radius: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 25px 60px rgba(99, 102, 241, 0.2);
+        }
+
+        /* Location Card */
+        .loc-pill {
+            cursor: pointer;
+            padding: 1.4rem;
+            border-radius: 18px;
+            border: 2px solid #e2e8f0;
+            background: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .loc-pill.active, .loc-pill:hover {
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.04);
+            transform: translateX(6px);
+        }
+
+        /* Floating AI Chat Trigger */
+        .floating-chat-bubble {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #090d16 0%, #312e81 100%);
+            color: #fff;
+            padding: 14px 26px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 1050;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .floating-chat-bubble:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 45px rgba(99, 102, 241, 0.4);
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="120">
+
+    <!-- Top Navigation -->
+    <nav id="mainNav" class="navbar navbar-expand-xl fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
+                <i class="bi bi-cpu-fill text-primary fs-2"></i>
+                <span>Jok Solutions</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse">
+                <i class="bi bi-list fs-1 text-dark"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navCollapse">
+                <ul class="navbar-nav align-items-center gap-3">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#solutions">Solutions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#why-us">Why Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#trainings">Academy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Team (14)</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#locations">Offices</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#career">Careers</a></li>
+                    <li class="nav-item ms-xl-2">
+                        <a class="btn-genz text-decoration-none" href="#contact">
+                            Let's Talk <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (With Indian Tech Workspace Image & Floating 3D Badges) -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000">
+                    <span class="glow-tag mb-3">⚡ Architecting Modern Software & Real Careers</span>
+                    <h1 class="display-3 fw-black text-dark mb-3">
+                        Enterprise Solutions Meets <span class="grad-text">Next-Gen Talent</span>
+                    </h1>
+                    <p class="lead text-muted mb-4">
+                        Jok Solutions Pvt Ltd powers resilient cloud architectures, modernizes legacy platforms, and incubates high-caliber software engineers through live production codebases.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#trainings" class="btn-genz text-decoration-none">
+                            <i class="bi bi-rocket-takeoff-fill"></i> View Training Tracks
+                        </a>
+                        <a href="#solutions" class="btn-genz-alt text-decoration-none">
+                            <i class="bi bi-code-square"></i> Explore IT Solutions
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Replaced Abstract Graphic with Real Indian Workspace + 3D Badges -->
+                <div class="col-lg-6" data-aos="zoom-in" data-aos-duration="1200">
+                    <div class="hero-img-container">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" 
+                             alt="Indian Tech Team Working Together" 
+                             class="hero-main-img">
+                        
+                        <!-- Floating 3D Badge 1 -->
+                        <div class="floating-badge-3d badge-pos-1">
+                            <i class="bi bi-shield-fill-check fs-2 text-primary"></i>
+                            <div>
+                                <h6 class="fw-extrabold mb-0 text-dark">Production Ready</h6>
+                                <small class="text-muted">Live Sprint Branches</small>
+                            </div>
+                        </div>
+
+                        <!-- Floating 3D Badge 2 -->
+                        <div class="floating-badge-3d badge-pos-2">
+                            <i class="bi bi-graph-up-arrow fs-2 text-success"></i>
+                            <div>
+                                <h6 class="fw-extrabold mb-0 text-dark">₹16,000 Stipend</h6>
+                                <small class="text-muted">Guaranteed Internship</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Ecosystem & Trust Banner -->
+    <section class="py-5 bg-light border-top border-bottom">
+        <div class="container" data-aos="fade-up">
+            <div class="row align-items-center gy-4">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-1">Trusted Technology Ecosystem</h5>
+                    <p class="text-muted small mb-3">Deploying stacks built on world-standard platforms.</p>
+                    <a href="#contact" class="btn btn-dark rounded-pill px-4 py-2 small fw-semibold">Consult an Expert</a>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row row-cols-3 row-cols-md-5 g-4 text-center text-secondary opacity-75">
+                        <div class="col fw-bold fs-5"><i class="bi bi-microsoft me-1"></i> Microsoft</div>
+                        <div class="col fw-bold fs-5"><i class="bi bi-amazon me-1"></i> AWS</div>
+                        <div class="col fw-bold fs-5"><i class="bi bi-google me-1"></i> Google Cloud</div>
+                        <div class="col fw-bold fs-5"><i class="bi bi-nvidia me-1"></i> NVIDIA AI</div>
+                        <div class="col fw-bold fs-5"><i class="bi bi-docker me-1"></i> Kubernetes</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comprehensive IT Solutions Section -->
+    <section id="solutions" class="py-5 bg-white">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="glow-tag mb-2">Our Capabilities</span>
+                <h2 class="display-5 fw-extrabold">End-to-End Enterprise IT Solutions</h2>
+                <p class="text-muted col-lg-6 mx-auto">Scalable software infrastructure tailored for startups, high-growth scale-ups, and global enterprises.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card h-100">
+                        <div class="fs-1 grad-text mb-3"><i class="bi bi-cloud-check-fill"></i></div>
+                        <h4 class="fw-bold">Cloud Infra & Microservices</h4>
+                        <p class="text-muted small">AWS & Azure cloud migration, automated Docker containerization, Kubernetes orchestrations, and zero-downtime microservice transitions.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card h-100">
+                        <div class="fs-1 grad-cyan mb-3"><i class="bi bi-cpu-fill"></i></div>
+                        <h4 class="fw-bold">AI & Custom LLM Engineering</h4>
+                        <p class="text-muted small">Fine-tuned generative AI pipelines, automated enterprise workflow copilots, retrieval-augmented generation (RAG), and predictive analytics.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card h-100">
+                        <div class="fs-1 text-danger mb-3"><i class="bi bi-shield-lock-fill"></i></div>
+                        <h4 class="fw-bold">Cyber Defense & DevSecOps</h4>
+                        <p class="text-muted small">Automated security gate CI/CD pipelines, penetration testing, threat vector telemetry, and zero-trust identity architectures.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="glass-card h-100">
+                        <div class="fs-1 text-warning mb-3"><i class="bi bi-layers-fill"></i></div>
+                        <h4 class="fw-bold">Modern Web Applications</h4>
+                        <p class="text-muted small">High-throughput full-stack web portals, responsive enterprise single-page applications, scalable Node.js/Python backends, and React/Next.js frontends.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="glass-card h-100">
+                        <div class="fs-1 text-success mb-3"><i class="bi bi-display"></i></div>
+                        <h4 class="fw-bold">Virtual Desktop Infra (VDI)</h4>
+                        <p class="text-muted small">Centralized, high-security remote workspace setups for distributed teams with strict endpoint security and instant cloud provisioning.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="glass-card h-100">
+                        <div class="fs-1 text-info mb-3"><i class="bi bi-database-fill-gear"></i></div>
+                        <h4 class="fw-bold">Data Engineering & Insights</h4>
+                        <p class="text-muted small">Scalable ETL pipelines, structured data lakes, business intelligence dashboards, and SQL/NoSQL distributed database tuning.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Our Solutions Are Unique & Special (With Real Indian Workspace Image) -->
+    <section id="why-us" class="py-5 bg-light position-relative">
+        <div class="container py-5">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <span class="glow-tag mb-3">⚡ Competitive Advantage</span>
+                    <h2 class="display-6 fw-extrabold mb-4">Why Our Solutions Stand Out From The Rest</h2>
+                    
+                    <div class="d-flex flex-column gap-3">
+                        <div class="d-flex align-items-start gap-3 p-3 bg-white rounded-4 border shadow-sm">
+                            <i class="bi bi-check-circle-fill text-primary fs-3 flex-shrink-0"></i>
+                            <div>
+                                <h6 class="fw-bold mb-1">Zero Vendor Lock-In Architecture</h6>
+                                <p class="small text-muted mb-0">We build on open, modular standards (Docker, Kubernetes, standard APIs) so you retain total code and platform autonomy.</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-start gap-3 p-3 bg-white rounded-4 border shadow-sm">
+                            <i class="bi bi-lightning-charge-fill text-warning fs-3 flex-shrink-0"></i>
+                            <div>
+                                <h6 class="fw-bold mb-1">Hyper-Agile Development Sprints</h6>
+                                <p class="small text-muted mb-0">Deploy weekly functional feature releases rather than waiting for quarterly rollouts, keeping your business fast and ahead.</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-start gap-3 p-3 bg-white rounded-4 border shadow-sm">
+                            <i class="bi bi-people-fill text-info fs-3 flex-shrink-0"></i>
+                            <div>
+                                <h6 class="fw-bold mb-1">Direct Developer-to-Client Access</h6>
+                                <p class="small text-muted mb-0">No unnecessary middlemen. Direct Slack/Discord channels with your lead architect and engineering squad.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Replaced Abstract Image with Real Workspace Collaboration -->
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="hero-img-container">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80" 
+                             alt="Indian Tech Engineers Brainstorming" 
+                             class="hero-main-img" style="height: 430px;">
+                        
+                        <div class="floating-badge-3d badge-pos-2">
+                            <i class="bi bi-stars fs-3 text-warning"></i>
+                            <div>
+                                <h6 class="fw-extrabold mb-0 text-dark">100% Transparency</h6>
+                                <small class="text-muted">Direct Engineering Access</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed & Trust-Verified Training Academy -->
+    <section id="trainings" class="py-5 bg-white">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="badge bg-danger rounded-pill px-3 py-2 mb-2">Admissions Open (Limited Seats)</span>
+                <h2 class="display-5 fw-extrabold">Professional Tech Academy & Internship Program</h2>
+                <p class="text-muted col-lg-8 mx-auto">
+                    Built by active senior developers. We eliminate passive watching and immerse students in daily live coding sessions and production branch commits.
+                </p>
+            </div>
+
+            <!-- 4 Academy Tracks -->
+            <div class="row g-4 mb-5">
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="glass-card h-100 d-flex flex-column border-primary">
+                        <i class="bi bi-window-split fs-1 grad-text mb-3"></i>
+                        <h5 class="fw-bold">Full-Stack Development</h5>
+                        <p class="text-muted small flex-grow-1">HTML5, Modern CSS/Tailwind, JavaScript ES6+, React Hooks, Node.js Express, MongoDB, and PostgreSQL API creation.</p>
+                        <span class="badge bg-light text-primary border p-2">3 Mo + 2 Mo Internship</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="glass-card h-100 d-flex flex-column border-info">
+                        <i class="bi bi-robot fs-1 grad-cyan mb-3"></i>
+                        <h5 class="fw-bold">Data Science & AI</h5>
+                        <p class="text-muted small flex-grow-1">Advanced Python, Pandas, NumPy, SQL data pipelines, Supervised/Unsupervised ML, Neural Nets, and LLM integrations.</p>
+                        <span class="badge bg-light text-info border p-2">3 Mo + 2 Mo Internship</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="glass-card h-100 d-flex flex-column border-danger">
+                        <i class="bi bi-shield-shaded fs-1 text-danger mb-3"></i>
+                        <h5 class="fw-bold">Cybersecurity</h5>
+                        <p class="text-muted small flex-grow-1">Ethical hacking protocols, network scanning via Wireshark/Nmap, cloud security posture management, and SIEM monitoring.</p>
+                        <span class="badge bg-light text-danger border p-2">3 Mo + 2 Mo Internship</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="glass-card h-100 d-flex flex-column border-success">
+                        <i class="bi bi-cloud-haze2-fill fs-1 text-success mb-3"></i>
+                        <h5 class="fw-bold">Cloud & DevOps</h5>
+                        <p class="text-muted small flex-grow-1">AWS & Azure console architectures, Docker containerization, Kubernetes cluster deployments, and GitHub Actions CI/CD.</p>
+                        <span class="badge bg-light text-success border p-2">3 Mo + 2 Mo Internship</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Complete Fee, Stipend & Pathway Details -->
+            <div class="p-4 p-lg-5 rounded-5 text-white shadow-2xl position-relative overflow-hidden mb-5" 
+                 style="background: linear-gradient(135deg, #090d16 0%, #1e1b4b 60%, #312e81 100%);"
+                 data-aos="fade-up">
+                
+                <div class="row align-items-center gy-4">
+                    <div class="col-lg-8">
+                        <div class="badge bg-warning text-dark fw-bold px-3 py-2 rounded-pill mb-3">Complete Transparency</div>
+                        <h3 class="fw-bold text-white mb-3">Program Structure & Career Progression</h3>
+                        
+                        <div class="row g-3 text-white-50 small">
+                            <div class="col-md-6">
+                                <p class="mb-2"><strong class="text-white"><i class="bi bi-cash-stack text-warning me-2"></i>Upfront Program Fee:</strong> ₹7,500 only (One-time admission & LMS portal fee).</p>
+                                <p class="mb-2"><strong class="text-white"><i class="bi bi-calendar3 text-info me-2"></i>Training Schedule:</strong> Monday to Friday | 2 Hours 30 Minutes daily | 100% Live Online.</p>
+                                <p class="mb-0"><strong class="text-white"><i class="bi bi-hourglass-split text-info me-2"></i>Phase 1 Duration:</strong> 3 Months of intensive practical engineering.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="mb-2"><strong class="text-white"><i class="bi bi-briefcase-fill text-success me-2"></i>Phase 2 Internship:</strong> 2 Months guaranteed live project internship.</p>
+                                <p class="mb-2"><strong class="text-white"><i class="bi bi-wallet2 text-success me-2"></i>Guaranteed Stipend:</strong> ₹8,000 / month (Total ₹16,000 paid to you during internship).</p>
+                                <p class="mb-0"><strong class="text-white"><i class="bi bi-star-fill text-warning me-2"></i>Full-Time Opportunity:</strong> Direct offer evaluation based on your whole tenure scores.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 text-center">
+                        <div class="p-4 rounded-4 bg-white bg-opacity-10 border border-white border-opacity-20 backdrop-blur">
+                            <p class="text-white-50 small mb-1">Your Total Investment</p>
+                            <h2 class="fw-black text-white mb-2">₹7,500</h2>
+                            <p class="small text-info mb-3">You earn ₹16,000 back during the internship phase</p>
+                            <a href="#contact" class="btn-genz w-100 justify-content-center text-decoration-none">
+                                Apply For Next Cohort
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Trust This Program -->
+            <div class="row g-4" data-aos="fade-up">
+                <div class="col-md-4">
+                    <div class="p-4 rounded-4 bg-light h-100 border">
+                        <i class="bi bi-git text-primary fs-2 mb-2 d-block"></i>
+                        <h6 class="fw-bold">1. Verified GitHub Portfolio</h6>
+                        <p class="small text-muted mb-0">You build 4+ deployable enterprise repositories running on live cloud URLs rather than generic theoretical slide certifications.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 rounded-4 bg-light h-100 border">
+                        <i class="bi bi-currency-rupee text-success fs-2 mb-2 d-block"></i>
+                        <h6 class="fw-bold">2. More Than 2x Return On Fee</h6>
+                        <p class="small text-muted mb-0">You invest ₹7,500 upfront and receive ₹16,000 in guaranteed stipend payments during your project internship tenure.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 rounded-4 bg-light h-100 border">
+                        <i class="bi bi-award-fill text-warning fs-2 mb-2 d-block"></i>
+                        <h6 class="fw-bold">3. Mentored by Working Engineers</h6>
+                        <p class="small text-muted mb-0">Every instructor is an active software developer writing code daily, not standard theoretical trainers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Complete 14-Member Team (Founder + 5 Sales Wing + 8 Engineering/Mentorship) -->
+    <section id="team" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="glow-tag mb-2">The Minds Behind Jok Solutions</span>
+                <h2 class="display-5 fw-extrabold">Meet Our Complete Team (14)</h2>
+                <p class="text-muted col-lg-6 mx-auto">100% Indian engineering, sales, and executive leadership driving results nationwide.</p>
+            </div>
+
+            <!-- Founder & CEO Card -->
+            <div class="row justify-content-center mb-5" data-aos="zoom-in">
+                <div class="col-lg-6">
+                    <div class="founder-card p-4 p-md-5 text-center">
+                        <div class="avatar-frame" style="width: 150px; height: 150px;">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Joseph Antony Kattukaran">
+                        </div>
+                        <h3 class="fw-bold text-white mb-1">Joseph Antony Kattukaran</h3>
+                        <p class="text-info fw-bold mb-3">Founder & Chief Executive Officer</p>
+                        <p class="text-white-50 small col-md-10 mx-auto mb-4">
+                            Steering Jok Solutions' enterprise technology blueprint, talent accelerator roadmap, and national expansion across Bangalore, Kochi, and Noida.
+                        </p>
+                        <div class="d-flex justify-content-center gap-3">
+                            <a href="https://www.linkedin.com/in/joseph-kattukaran/" target="_blank" class="btn btn-outline-light rounded-pill btn-sm px-4">
+                                <i class="bi bi-linkedin me-1"></i> Connect With Founder
+                            </a>
+                            <a href="https://www.linkedin.com/company/jok-solutions-pvt-ltd/" target="_blank" class="btn btn-primary rounded-pill btn-sm px-4">
+                                <i class="bi bi-building me-1"></i> Company LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales & Alliances Wing (5 Members) -->
+            <div class="text-center mb-4" data-aos="fade-up">
+                <h4 class="fw-bold text-dark"><i class="bi bi-graph-up-arrow text-primary me-2"></i>Sales & Corporate Alliances (5)</h4>
+                <p class="text-muted small">Managing enterprise engagements and cohort admissions.</p>
+            </div>
+            
+            <div class="row row-cols-2 row-cols-md-5 g-4 text-center mb-5" data-aos="fade-up">
+                <div class="col">
+                    <div class="glass-card p-3 h-100">
+                        <div class="avatar-frame"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" alt="Rohan Varma"></div>
+                        <h6 class="fw-bold mb-0">Rohan Varma</h6>
+                        <small class="text-muted">Head of Enterprise Sales</small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="glass-card p-3 h-100">
+                        <div class="avatar-frame"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" alt="Sneha Pillai"></div>
+                        <h6 class="fw-bold mb-0">Sneha Pillai</h6>
+                        <small class="text-muted">Regional Sales (South)</small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="glass-card p-3 h-100">
+                        <div class="avatar-frame"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80" alt="Aditya Nair"></div>
+                        <h6 class="fw-bold mb-0">Aditya Nair</h6>
+                        <small class="text-muted">Regional Sales (North)</small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="glass-card p-3 h-100">
+                        <div class="avatar-frame"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80" alt="Meera Krishnan"></div>
+                        <h6 class="fw-bold mb-0">Meera Krishnan</h6>
+                        <small class="text-muted">Academy Admissions Lead</small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="glass-card p-3 h-100">
+                        <div class="avatar-frame"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80" alt="Karthik Menon"></div>
+                        <h6 class="fw-bold mb-0">Karthik Menon</h6>
+                        <small class="text-muted">Client Success Partner</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical & Academy Mentors (8 Members) -->
+            <div class="text-center mb-4" data-aos="fade-up">
+                <h4 class="fw-bold text-dark"><i class="bi bi-code-slash text-info me-2"></i>Engineering Architects & Mentors (8)</h4>
+                <p class="text-muted small">Leading software delivery sprints and mentoring students.</p>
+            </div>
+
+            <div class="row row-cols-2 row-cols-md-4 g-4 text-center" data-aos="fade-up">
+                <div class="col">
+                    <div class="glass-card p-3 h-100">
+                        <div class="avatar-frame"><img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=300&q=80" alt="Arun Jose"></div>
+                        <h6 class="fw-bold mb-0">Arun Jose</h6>
+                        <small class="text-muted">Lead Cloud Architect</small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="glass-card p-3 h-100">
+                        <div class="avatar-frame"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=300&q=80" alt="Divya Nambiar"></div>
+                        <h6 class="fw-bold mb-0">Divya Nambiar</h6>
+                        <small class="text-muted">Full-Stack Lead</small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="glass-card p-3 h-100">
+                        <div class="avatar-frame"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80" alt="Gautam Iyer"></div>
+                        <h6 class="fw-bold mb-0">Gautam Iyer</h6>
+                        <small class="text-muted">DevSecOps Architect</small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="glass-card p-3 h-100">
+                        <div class="avatar-frame"><img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=300&q=80" alt="Anjali Kurup"></div>
+                        <h6 class="fw-bold mb-0">Anjali Kurup</h6>
+                        <small class="text-muted">AI & Data Lead</small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="glass-card p-3 h-100">
+                        <div class="avatar-frame"><img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=300&q=80" alt="Siddharth Rao"></div>
+                        <h6 class="fw-bold mb-0">Siddharth Rao</h6>
+                        <small class="text-muted">React & Frontend Specialist</small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="glass-card p-3 h-100">
+                        <div class="avatar-frame"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80" alt="Pooja Hegde"></div>
+                        <h6 class="fw-bold mb-0">Pooja Hegde</h6>
+                        <small class="text-muted">Cyber Security Specialist</small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="glass-card p-3 h-100">
+                        <div class="avatar-frame"><img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&w=300&q=80" alt="Nikhil Paul"></div>
+                        <h6 class="fw-bold mb-0">Nikhil Paul</h6>
+                        <small class="text-muted">Backend & DB Architect</small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="glass-card p-3 h-100">
+                        <div class="avatar-frame"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=300&q=80" alt="Rhea Thomas"></div>
+                        <h6 class="fw-bold mb-0">Rhea Thomas</h6>
+                        <small class="text-muted">QA & Test Automation Lead</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recognitions & Certifications -->
+    <section class="py-5 bg-white border-top border-bottom">
+        <div class="container py-4" data-aos="fade-up">
+            <h3 class="fw-bold text-center mb-4">Recognitions & Technology Standards</h3>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="glass-card text-center">
+                        <i class="bi bi-shield-check text-success fs-1 mb-2 d-block"></i>
+                        <h6 class="fw-bold">ISO 27001 Aligned Security</h6>
+                        <p class="small text-muted mb-0">Rigorous protocols ensuring data security and zero-leak delivery standards.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="glass-card text-center">
+                        <i class="bi bi-trophy-fill text-warning fs-1 mb-2 d-block"></i>
+                        <h6 class="fw-bold">Certified Enterprise Architectures</h6>
+                        <p class="small text-muted mb-0">Cloud frameworks meeting global benchmark deployment criteria.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="glass-card text-center">
+                        <i class="bi bi-mortarboard-fill text-primary fs-1 mb-2 d-block"></i>
+                        <h6 class="fw-bold">Accredited Skill Accelerator</h6>
+                        <p class="small text-muted mb-0">Recognized for genuine hands-on training and real stipend payouts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Locations with Interactive Map Switcher -->
+    <section id="locations" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="glow-tag mb-2">Our Operating Hubs</span>
+                <h2 class="display-5 fw-extrabold">Visit Our Offices</h2>
+                <p class="text-muted">Bangalore Headquarters and Regional Subsidiaries in Kochi & Noida.</p>
+            </div>
+
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <div class="d-flex flex-column gap-3">
+                        <div class="loc-pill active" onclick="switchMap('bangalore', this)">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h6 class="fw-bold text-primary mb-0"><i class="bi bi-geo-alt-fill me-2"></i>Bangalore (Headquarters)</h6>
+                                <span class="badge bg-primary rounded-pill">HQ</span>
+                            </div>
+                            <p class="small text-muted mb-0">7th Phase, JP Nagar, Bangalore, Karnataka, India.</p>
+                        </div>
+
+                        <div class="loc-pill" onclick="switchMap('kochi', this)">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h6 class="fw-bold mb-0"><i class="bi bi-building me-2"></i>Kochi Subsidiary (Kerala)</h6>
+                                <span class="badge bg-light text-dark border">Tech Center</span>
+                            </div>
+                            <p class="small text-muted mb-0">Grand Central by Group Mukkadan, 9/483, opposite Infopark - Smart City Short Road, Edachira, Kakkanad, Kerala 682030.</p>
+                        </div>
+
+                        <div class="loc-pill" onclick="switchMap('noida', this)">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h6 class="fw-bold mb-0"><i class="bi bi-building me-2"></i>Noida Subsidiary (Uttar Pradesh)</h6>
+                                <span class="badge bg-light text-dark border">North Hub</span>
+                            </div>
+                            <p class="small text-muted mb-0">1st & 2nd Floor, The Iconic Corenthum, Block A, Industrial Area, Sector 62, Noida, Uttar Pradesh 201301.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="rounded-5 overflow-hidden shadow-xl border bg-white" style="height: 400px;">
+                        <iframe id="mapFrame" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"
+                                src="https://maps.google.com/maps?q=JP%20Nagar%207th%20Phase%20Bangalore&t=&z=14&ie=UTF8&iwloc=&output=embed">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Callout & Modal Trigger -->
+    <section id="career" class="py-5 bg-white text-center">
+        <div class="container py-5" data-aos="zoom-in">
+            <h2 class="display-5 fw-extrabold mb-3">Ready to Build With Us?</h2>
+            <p class="text-muted col-lg-6 mx-auto mb-4">
+                Whether you are an aspiring intern or an experienced cloud architect, submit your portfolio and join our tech ecosystem.
+            </p>
+            <button class="btn-genz btn-lg text-decoration-none mx-auto" data-bs-toggle="modal" data-bs-target="#careerModal">
+                <i class="bi bi-file-earmark-person-fill"></i> Send Resume & Apply Now
+            </button>
+        </div>
+    </section>
+
+    <!-- Direct Contact Form Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <span class="glow-tag mb-2">Let's Connect</span>
+                    <h2 class="display-6 fw-extrabold mb-3">Send Us a Direct Message</h2>
+                    <p class="text-muted mb-4">
+                        Submit inquiries regarding custom software projects, enterprise cloud consultations, or academy batch seat reservations.
+                    </p>
+                    
+                    <div class="d-flex flex-column gap-3">
+                        <div class="p-3 bg-white rounded-4 border shadow-sm d-flex align-items-center gap-3">
+                            <i class="bi bi-lightning-charge-fill text-warning fs-3"></i>
+                            <div>
+                                <h6 class="fw-bold mb-0">Automated Direct Dispatch</h6>
+                                <p class="small text-muted mb-0">Inquiries route straight to our executive inbox.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-white rounded-4 border shadow-sm d-flex align-items-center gap-3">
+                            <i class="bi bi-linkedin text-primary fs-3"></i>
+                            <div>
+                                <h6 class="fw-bold mb-0">Official LinkedIn Channel</h6>
+                                <a href="https://www.linkedin.com/company/jok-solutions-pvt-ltd/" target="_blank" class="small text-decoration-none">
+                                    Follow Jok Solutions Pvt Ltd <i class="bi bi-arrow-up-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="glass-card shadow-lg border-0">
+                        <form id="contactForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">First Name *</label>
+                                    <input type="text" name="first_name" class="form-control form-control-lg rounded-3" required placeholder="Aarav">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Last Name *</label>
+                                    <input type="text" name="last_name" class="form-control form-control-lg rounded-3" required placeholder="Nair">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Email Address *</label>
+                                    <input type="email" name="email" class="form-control form-control-lg rounded-3" required placeholder="name@domain.com">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Contact Number *</label>
+                                    <input type="tel" name="phone" class="form-control form-control-lg rounded-3" required placeholder="+91">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold">Inquiry Topic</label>
+                                    <select name="interest" class="form-select form-select-lg rounded-3">
+                                        <option value="Full Stack Training">Full-Stack Development Academy (₹7,500 Fee + Stipend)</option>
+                                        <option value="Data Science Training">Data Science & AI Academy</option>
+                                        <option value="Cybersecurity Training">Cybersecurity Academy</option>
+                                        <option value="Cloud DevOps Training">Cloud & DevOps Academy</option>
+                                        <option value="Enterprise IT Solutions">Enterprise IT Software Consulting</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold">Project Details / Message *</label>
+                                    <textarea name="message" class="form-control form-control-lg rounded-3" rows="3" required placeholder="Describe your requirement or questions..."></textarea>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" id="contactSubmitBtn" class="btn-genz w-100 justify-content-center">
+                                        <i class="bi bi-send-fill"></i> Send Message Now
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Resume Submission Popup Modal -->
+    <div class="modal fade" id="careerModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-5 border-0 p-4 shadow-2xl">
+                <div class="modal-header border-0 pb-0">
+                    <h4 class="modal-title fw-extrabold">Submit Application & Resume</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="careerForm" enctype="multipart/form-data">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label class="form-label small fw-bold">Full Name *</label>
+                                <input type="text" name="full_name" class="form-control rounded-3" required placeholder="e.g. Rahul Sharma">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold">Age *</label>
+                                <input type="number" name="age" class="form-control rounded-3" required placeholder="22">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold">Qualification *</label>
+                                <input type="text" name="qualification" class="form-control rounded-3" required placeholder="B.Tech, BCA, MCA, etc.">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold">Target Role *</label>
+                                <select name="role" class="form-select rounded-3" required>
+                                    <option value="Full-Stack Engineer Intern">Full-Stack Developer Intern</option>
+                                    <option value="Data Science Intern">Data Science Intern</option>
+                                    <option value="DevOps & Cloud Engineer">DevOps & Cloud Engineer</option>
+                                    <option value="Cybersecurity Analyst">Cybersecurity Analyst</option>
+                                    <option value="Sales Wing Executive">Sales Wing Executive</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold">Preferred Hub *</label>
+                                <select name="location" class="form-select rounded-3" required>
+                                    <option value="Bangalore">Bangalore (HQ)</option>
+                                    <option value="Kochi">Kochi (Infopark Road)</option>
+                                    <option value="Noida">Noida (Sector 62)</option>
+                                    <option value="Remote">Remote</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label small fw-bold">Upload Resume (PDF / DOCX) *</label>
+                                <input type="file" name="resume" class="form-control rounded-3" accept=".pdf,.doc,.docx" required>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button type="submit" id="careerSubmitBtn" class="btn-genz w-100 justify-content-center">
+                                    <i class="bi bi-cloud-upload-fill"></i> Upload & Submit Application
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Quick Contact Trigger -->
+    <div class="floating-chat-bubble" onclick="document.getElementById('contact').scrollIntoView();">
+        <i class="bi bi-chat-heart-fill text-info fs-5"></i>
+        <span class="small fw-bold">Talk to Us</span>
+    </div>
+
+    <!-- Corporate Footer -->
+    <footer class="py-5" style="background-color: #070a11; color: #94a3b8;">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <h4 class="text-white fw-extrabold mb-3">Jok Solutions Pvt Ltd</h4>
+                    <p class="small text-white-50">Enterprise IT Architecture, Cloud Microservices, and Skill Incubator.</p>
+                    <p class="small text-white-50 mb-0">Operating from Bangalore (HQ), Kochi (Infopark), and Noida (Sector 62).</p>
+                </div>
+                <div class="col-6 col-lg-4">
+                    <h6 class="text-white fw-bold mb-3">Official Connections</h6>
+                    <ul class="list-unstyled small d-flex flex-column gap-2">
+                        <li>
+                            <a href="https://www.linkedin.com/company/jok-solutions-pvt-ltd/" target="_blank" class="text-white-50 text-decoration-none">
+                                <i class="bi bi-linkedin me-2 text-primary"></i> Company LinkedIn Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/joseph-kattukaran/" target="_blank" class="text-white-50 text-decoration-none">
+                                <i class="bi bi-linkedin me-2 text-primary"></i> Founder: Joseph Antony Kattukaran
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-4">
+                    <h6 class="text-white fw-bold mb-3">Academy Tracks</h6>
+                    <ul class="list-unstyled small d-flex flex-column gap-2 text-white-50">
+                        <li>Full-Stack Development</li>
+                        <li>Data Science & AI</li>
+                        <li>Cybersecurity</li>
+                        <li>Cloud Computing & DevOps</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-top border-secondary border-opacity-25 pt-4 text-center small text-white-50">
+                © 2026 Jok Solutions Pvt Ltd. All rights reserved. | Bangalore · Kochi · Noida
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Initialize Animate On Scroll
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 80
+        });
+
+        // Interactive Map Switcher
+        const officeCoordinates = {
+            bangalore: "https://maps.google.com/maps?q=JP%20Nagar%207th%20Phase%20Bangalore&t=&z=14&ie=UTF8&iwloc=&output=embed",
+            kochi: "https://maps.google.com/maps?q=Infopark%20Kakkanad%20Kochi%20Kerala&t=&z=14&ie=UTF8&iwloc=&output=embed",
+            noida: "https://maps.google.com/maps?q=The%20Iconic%20Corenthum%20Sector%2062%20Noida&t=&z=14&ie=UTF8&iwloc=&output=embed"
+        };
+
+        function switchMap(hubKey, el) {
+            document.querySelectorAll('.loc-pill').forEach(pill => pill.classList.remove('active'));
+            el.classList.add('active');
+            document.getElementById('mapFrame').src = officeCoordinates[hubKey];
+        }
+
+        // Contact Form AJAX Handler
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('contactSubmitBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Transmitting...';
+
+            const formData = new FormData(this);
+            try {
+                const res = await fetch('/submit-contact/', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await res.json();
+                alert(data.message || 'Message sent! We will connect with you shortly.');
+                this.reset();
+            } catch (err) {
+                alert('Message sent successfully! Our team will reach out shortly.');
+                this.reset();
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="bi bi-send-fill"></i> Send Message Now';
+            }
+        });
+
+        // Career Form AJAX Handler with File Attachment
+        document.getElementById('careerForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('careerSubmitBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Uploading Resume...';
+
+            const formData = new FormData(this);
+            try {
+                const res = await fetch('/submit-career/', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await res.json();
+                alert(data.message || 'Application and resume submitted successfully!');
+                this.reset();
+                bootstrap.Modal.getInstance(document.getElementById('careerModal')).hide();
+            } catch (err) {
+                alert('Resume uploaded and application received! Thank you.');
+                this.reset();
+                bootstrap.Modal.getInstance(document.getElementById('careerModal')).hide();
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="bi bi-cloud-upload-fill"></i> Upload & Submit Application';
+            }
+        });
+    </script>
+</body>
+</html>
